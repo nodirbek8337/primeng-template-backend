@@ -6,6 +6,7 @@ export interface IUser extends Document {
   email: string;
   phone: string;
   gender: "male" | "female";
+  status: "active" | "inActive";
   nationality: string;
   address: string;
   birth_date: Date;
@@ -14,14 +15,15 @@ export interface IUser extends Document {
 }
 
 const UserSchema: Schema = new Schema({
-  name: { type: String, required: true },
-  role: { type: String, enum: ["Admin", "User", "Guest"], required: true },
-  email: { type: String, required: true },
-  phone: { type: String, required: true },
-  gender: { type: String, enum: ["male", "female"], required: true },
-  nationality: { type: String, required: true },
-  address: { type: String, required: true },
-  birth_date: { type: Date, required: true },
+  name: { type: String, required: false },
+  role: { type: String, enum: ["Admin", "User", "Guest"], required: false },
+  email: { type: String, required: false },
+  phone: { type: String, required: false },
+  gender: { type: String, enum: ["male", "female"], required: false },
+  status: { type: String, enum: ["active", "inActive"], required: false },
+  nationality: { type: String, required: false },
+  address: { type: String, required: false },
+  birth_date: { type: Date, required: false },
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: Date.now },
 });

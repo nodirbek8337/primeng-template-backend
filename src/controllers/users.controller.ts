@@ -10,6 +10,7 @@ export const getAllUsers = async (req: Request, res: Response): Promise<void> =>
       order_type = "desc",
       role,
       gender,
+      status,
       search,
       name,
       email,
@@ -22,6 +23,7 @@ export const getAllUsers = async (req: Request, res: Response): Promise<void> =>
 
     if (role) filter.role = { $regex: role, $options: "i" };
     if (gender) filter.gender = { $regex: gender, $options: "i" };
+    if (status) filter.status = { $regex: status, $options: "i" };
     if (name) filter.name = { $regex: name, $options: "i" };
     if (email) filter.email = { $regex: email, $options: "i" };
     if (phone) filter.phone = { $regex: phone, $options: "i" };
