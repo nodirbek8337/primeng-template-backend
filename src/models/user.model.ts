@@ -9,6 +9,10 @@ export interface IUser extends Document {
   status: "active" | "inActive";
   nationality: string;
   address: string;
+  contact: {
+    cell_phone: string,
+    office_phone: string
+  };
   birth_date: Date;
   created_at: Date;
   updated_at: Date;
@@ -23,6 +27,10 @@ const UserSchema: Schema = new Schema({
   status: { type: String, enum: ["active", "inActive"], required: false },
   nationality: { type: String, required: false },
   address: { type: String, required: false },
+  contact: {
+    cell_phone: { type: String, required: false },
+    office_phone: { type: String, required: false }
+  },
   birth_date: { type: Date, required: false },
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: Date.now },
